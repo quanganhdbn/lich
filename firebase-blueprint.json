@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Trip": {
+      "title": "Trip",
+      "description": "Vehicle schedule trip record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "tripDate": { "type": "string" },
+        "startTime": { "type": "string" },
+        "endTime": { "type": "string" },
+        "startLocation": { "type": "string" },
+        "destination": { "type": "string" },
+        "waypoints": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["SCHEDULED", "IN_PROGRESS", "COMPLETED", "CANCELLED"]
+        },
+        "flightNumber": { "type": "string" },
+        "flightStatus": { "type": "string" },
+        "reminderEnabled": { "type": "boolean" },
+        "reminderTimeMillis": { "type": "integer" },
+        "completedBy": { "type": "string" },
+        "completedAt": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "tripDate", "startTime", "startLocation", "destination", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profiles"
+    },
+    "/users/{userId}/trips/{tripId}": {
+      "schema": "Trip",
+      "description": "Stores trips for a user"
+    }
+  }
+}

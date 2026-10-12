@@ -1,0 +1,8 @@
+{
+  "name": "Remix RidePilot",
+  "description": "Smart chauffeur \u0026 airport transfer trip scheduler with flight tracking, pickup reminders, and AI schedule parser.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
